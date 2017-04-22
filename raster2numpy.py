@@ -8,7 +8,7 @@ def raster2array(raster,npType):
     Converts an input raster to a numpy array of type npType
 
     Inputs: raster -> input raster openable by GDAL
-            npType -> Numpy data type (e.g. numpy.uint16)
+            npType -> Numpy data type (e.g. numpy.uint16, see https://docs.scipy.org/doc/numpy/user/basics.types.html)
     '''
     raster = gdal.Open(raster)
     band = raster.GetRasterBand(1)
@@ -40,7 +40,7 @@ def array2raster(outRaster,gdalType,referenceRaster,array):
     template
 
     Inputs: outRaster -> file path to save the output raster to
-            gdalType -> GDAL data type (e.g. gdal.GDT_UInt16)
+            gdalType -> GDAL data type (e.g. gdal.GDT_UInt16, see http://www.gdal.org/gdal_8h.html#a22e22ce0a55036a96f652765793fb7a4)
             referenceRaster -> reference raster to use for coordinate conversion
             array -> numpy array to be converted to raster
     '''
