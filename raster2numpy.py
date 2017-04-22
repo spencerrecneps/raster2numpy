@@ -9,6 +9,8 @@ def raster2array(raster,npType):
 
     Inputs: raster -> input raster openable by GDAL
             npType -> Numpy data type (e.g. numpy.uint16, see https://docs.scipy.org/doc/numpy/user/basics.types.html)
+
+    Returns: Numpy array
     '''
     raster = gdal.Open(raster)
     band = raster.GetRasterBand(1)
@@ -23,6 +25,8 @@ def coord2pixelOffset(referenceRaster,x,y):
     Inputs: referenceRaster -> reference raster to use for coordinate conversion
             x -> x coordinate in the CRS of the reference raster
             y -> y coordinate in the CRS of the reference raster
+
+    Returns: x and y array indexes
     '''
     raster = gdal.Open(referenceRaster)
     geotransform = raster.GetGeoTransform()
